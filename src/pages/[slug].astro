@@ -1,0 +1,54 @@
+---
+// 1. Import your dataset
+import directoryData from '../data/data.json';
+// 2. Tell Astro to generate a page for every row in your JSON file
+export async function getStaticPaths() {
+  return directoryData.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+// 3. Get the data for the current page being generated
+const { entry } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{entry.h1_title}</title>
+    <meta name="description" content={entry.meta_description} />
+  </head>
+  
+  <body style="font-family: system-ui, sans-serif; background-color: #f9fafb; color: #111827; max-width: 800px; margin: 0 auto; padding: 2rem;">
+    
+    <a href="/" style="color: #3b82f6; text-decoration: none;">&larr; Back to Directory</a>
+    
+    <header style="margin-top: 2rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 2rem;">
+      <span style="background-color: #dbeafe; color: #1d4ed8; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: bold;">
+        {entry.compliance_type} Compliant
+      </span>
+      <h1 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 0.5rem;">{entry.h1_title}</h1>
+      <p style="font-size: 1.25rem; color: #4b5563;">{entry.meta_description}</p>
+    </header>
+
+    <main style="margin-top: 2rem;">
+      <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Integration Details</h2>
+        
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          <li><strong>Primary Software:</strong> {entry.primary_software}</li>
+          <li><strong>Partner App:</strong> {entry.integration_partner}</li>
+          <li><strong>Estimated Cost:</strong> {entry.monthly_cost}</li>
+          <li><strong>Setup Difficulty:</strong> {entry.setup_difficulty}</li>
+        </ul>
+
+        <a href={entry.affiliate_link || "#"} style="display: inline-block; margin-top: 2rem; background-color: #111827; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: bold;">
+          View Setup Instructions
+        </a>
+      </div>
+    </main>
+    
+  </body>
+</html>
