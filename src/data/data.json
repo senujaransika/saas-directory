@@ -8,7 +8,7 @@
     "compliance_type": "HIPAA",
     "monthly_cost": "$50/mo",
     "setup_difficulty": "Medium",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "quickbooks-salesforce-soc2",
@@ -19,7 +19,7 @@
     "compliance_type": "SOC-2",
     "monthly_cost": "$99/mo",
     "setup_difficulty": "Hard",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "shopify-mailchimp-gdpr",
@@ -30,7 +30,7 @@
     "compliance_type": "GDPR",
     "monthly_cost": "$20/mo",
     "setup_difficulty": "Easy",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "salesforce-stripe-pci-dss",
@@ -41,7 +41,7 @@
     "compliance_type": "PCI-DSS",
     "monthly_cost": "$300/mo",
     "setup_difficulty": "Hard",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "hubspot-docusign-gdpr",
@@ -52,7 +52,7 @@
     "compliance_type": "GDPR",
     "monthly_cost": "$150/mo",
     "setup_difficulty": "Medium",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "zendesk-jira-soc-2",
@@ -63,7 +63,7 @@
     "compliance_type": "SOC-2",
     "monthly_cost": "$120/mo",
     "setup_difficulty": "Easy",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "workday-snowflake-iso-27001",
@@ -74,7 +74,7 @@
     "compliance_type": "ISO 27001",
     "monthly_cost": "Custom Enterprise",
     "setup_difficulty": "Hard",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "epic-slack-hipaa",
@@ -85,7 +85,7 @@
     "compliance_type": "HIPAA",
     "monthly_cost": "Custom Enterprise",
     "setup_difficulty": "Hard",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "shopify-paypal-pci-dss",
@@ -96,7 +96,7 @@
     "compliance_type": "PCI-DSS",
     "monthly_cost": "$79/mo",
     "setup_difficulty": "Easy",
-    "affiliate_link": ""
+    "affiliate_link": "[https://google.com](https://google.com)"
   },
   {
     "slug": "marketo-snowflake-gdpr",
