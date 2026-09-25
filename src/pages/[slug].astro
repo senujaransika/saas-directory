@@ -1,54 +1,53 @@
 ---
-// 1. Import your dataset
-import directoryData from '../data/data.json';
-// 2. Tell Astro to generate a page for every row in your JSON file
-export async function getStaticPaths() {
-  return directoryData.map((entry) => ({
+import data from '../data/data.json';
+
+export function getStaticPaths() {
+  return data.map((entry) => ({
     params: { slug: entry.slug },
-    props: { entry }
+    props: { entry },
   }));
 }
 
-// 3. Get the data for the current page being generated
 const { entry } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{entry.h1_title}</title>
-    <meta name="description" content={entry.meta_description} />
+    <meta name="viewport" content="width=device-width" />
+    <title>{entry.title} - Setup Instructions</title>
   </head>
-  
-  <body style="font-family: system-ui, sans-serif; background-color: #f9fafb; color: #111827; max-width: 800px; margin: 0 auto; padding: 2rem;">
-    
-    <a href="/" style="color: #3b82f6; text-decoration: none;">&larr; Back to Directory</a>
-    
-    <header style="margin-top: 2rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 2rem;">
-      <span style="background-color: #dbeafe; color: #1d4ed8; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.875rem; font-weight: bold;">
-        {entry.compliance_type} Compliant
-      </span>
-      <h1 style="font-size: 2.5rem; margin-top: 1rem; margin-bottom: 0.5rem;">{entry.h1_title}</h1>
-      <p style="font-size: 1.25rem; color: #4b5563;">{entry.meta_description}</p>
-    </header>
+  <body class="bg-slate-50 min-h-screen font-sans">
+    <div class="max-w-3xl mx-auto px-4 py-12">
+      
+      <!-- Back Button -->
+      <a href="/" class="inline-flex items-center text-slate-500 hover:text-blue-600 mb-8 transition-colors font-medium">
+        ← Back to Directory
+      </a>
 
-    <main style="margin-top: 2rem;">
-      <div style="background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Integration Details</h2>
+      <!-- Main Content Box -->
+      <article class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
+          {entry.title}
+        </h1>
         
-        <ul style="list-style: none; padding: 0; line-height: 2;">
-          <li><strong>Primary Software:</strong> {entry.primary_software}</li>
-          <li><strong>Partner App:</strong> {entry.integration_partner}</li>
-          <li><strong>Estimated Cost:</strong> {entry.monthly_cost}</li>
-          <li><strong>Setup Difficulty:</strong> {entry.setup_difficulty}</li>
-        </ul>
+        <div class="mb-8">
+          <p class="text-lg text-slate-600 leading-relaxed">
+            {entry.description}
+          </p>
+        </div>
 
-        <a href={entry.affiliate_link || "#"} target="_blank" rel="noopener noreferrer" class="ඔයාගේ-කලින්-තිබ්බ-Tailwind-Classes-ටික-මෙතන-තියන්න">
-           View Setup Instructions
+        <!-- Call to Action Button (Affiliate Link) -->
+        <a 
+          href={entry.affiliate_link || "#"} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200"
+        >
+          View Setup Instructions 🚀
         </a>
-      </div>
-    </main>
-    
+      </article>
+
+    </div>
   </body>
 </html>

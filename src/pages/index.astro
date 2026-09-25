@@ -1,39 +1,44 @@
 ---
-// 1. 
-import directoryData from '../data/data.json';
+import data from '../data/data.json';
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>SaaS Compliance Integrations Directory</title>
-    <meta name="description" content="Find the perfect compliance integration for your B2B SaaS stack." />
+    <meta name="viewport" content="width=device-width" />
+    <title>B2B SaaS Compliance Directory</title>
   </head>
-  
-  <body style="font-family: system-ui, sans-serif; background-color: #f9fafb; color: #111827; max-width: 1000px; margin: 0 auto; padding: 2rem;">
-    
-    <header style="text-align: center; margin-bottom: 3rem;">
-      <h1 style="font-size: 3rem; margin-bottom: 1rem;">SaaS Compliance Directory</h1>
-      <p style="font-size: 1.25rem; color: #4b5563;">Find secure, compliant integration setups for your business tools.</p>
-    </header>
-
-    <!-- Pages 50 main URL -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+  <body class="bg-slate-50 min-h-screen font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       
-      {directoryData.map((item) => (
-        <a href={`/${item.slug}`} style="text-decoration: none; color: inherit;">
-          <div style="background-color: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: transform 0.2s; border: 1px solid #e5e7eb; height: 100%;">
-            <span style="display: inline-block; background-color: #dbeafe; color: #1d4ed8; padding: 0.2rem 0.6rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; margin-bottom: 0.75rem;">
-              {item.compliance_type}
-            </span>
-            <h2 style="font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem; color: #111827;">{item.h1_title}</h2>
-            <p style="font-size: 0.875rem; color: #6b7280; line-height: 1.5;">{item.primary_software} + {item.integration_partner}</p>
-          </div>
-        </a>
-      ))}
+      <!-- Header Section -->
+      <header class="mb-14 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          Software Compliance Integrations
+        </h1>
+        <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+          Discover secure B2B software pairings for HIPAA, SOC-2, and PCI-DSS compliance.
+        </p>
+      </header>
+
+      <!-- Grid Cards Section -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {data.map((item) => (
+          <a href={`/${item.slug}`} class="bg-white rounded-xl shadow-sm hover:shadow-xl border border-slate-200 transition-all duration-300 p-6 flex flex-col group">
+            <h2 class="text-xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">
+              {item.title}
+            </h2>
+            <p class="text-slate-500 text-sm mb-5 line-clamp-3">
+              {item.description}
+            </p>
+            <!-- Card Footer / Link -->
+            <div class="mt-auto pt-4 border-t border-slate-100 text-blue-600 text-sm font-semibold flex items-center">
+              View Details <span class="ml-1 group-hover:translate-x-1 transition-transform">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
 
     </div>
-    
   </body>
 </html>
