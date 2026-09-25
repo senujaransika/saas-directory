@@ -15,7 +15,8 @@ const { entry } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{entry.title} - Setup Instructions</title>
+    <title>{entry.h1_title} - Setup Instructions</title>
+    <meta name="description" content={entry.meta_description} />
   </head>
   <body class="bg-slate-50 min-h-screen font-sans">
     <div class="max-w-3xl mx-auto px-4 py-12">
@@ -27,13 +28,34 @@ const { entry } = Astro.props;
 
       <!-- Main Content Box -->
       <article class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
+        
+        <!-- Top Badges -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="px-3 py-1 bg-blue-50 text-blue-700 text-sm font-semibold rounded-full border border-blue-100">
+            {entry.compliance_type} Compliant
+          </span>
+          <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-full border border-emerald-100">
+            Cost: {entry.monthly_cost}
+          </span>
+        </div>
+
         <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-          {entry.title}
+          {entry.h1_title}
         </h1>
         
+        <!-- Integration Details Box -->
+        <div class="mb-8 p-6 bg-slate-50 rounded-xl border border-slate-100">
+          <h3 class="font-semibold text-slate-800 mb-4">Integration Details</h3>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li class="flex items-center"><span class="w-32 font-medium text-slate-700">Primary Software:</span> <span>{entry.primary_software}</span></li>
+            <li class="flex items-center"><span class="w-32 font-medium text-slate-700">Partner:</span> <span>{entry.integration_partner}</span></li>
+            <li class="flex items-center"><span class="w-32 font-medium text-slate-700">Setup Difficulty:</span> <span>{entry.setup_difficulty}</span></li>
+          </ul>
+        </div>
+
         <div class="mb-8">
           <p class="text-lg text-slate-600 leading-relaxed">
-            {entry.description}
+            {entry.meta_description}
           </p>
         </div>
 
